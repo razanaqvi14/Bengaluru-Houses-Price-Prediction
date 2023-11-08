@@ -6,6 +6,7 @@ __locations = None
 __data_columns = None
 __model = None
 
+
 def load_saved_artifacts():
     print("LOADING SAVED ARTIFACTS...")
     global __data_columns
@@ -23,9 +24,9 @@ def load_saved_artifacts():
 
 def get_estimated_price(location, sqft, bhk, bath):
     try:
-        loc_index = __data.columns.index(location.lower())
+        loc_index = __data_columns.index(location.lower())
     except:
-        loc_index  = -1
+        loc_index = -1
 
     print(f"location index: {loc_index}")
 
@@ -43,9 +44,9 @@ def get_estimated_price(location, sqft, bhk, bath):
 def get_location_names():
     return __locations
 
+
 if __name__ == "__main__":
     load_saved_artifacts()
     get_location_names()
     print(get_estimated_price("1st phase jp nagar", 1000, 3, 3))
     print(get_estimated_price("Kalhalli", 2000, 3, 3))
-
